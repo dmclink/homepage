@@ -121,3 +121,64 @@ summary {
 	display: list-item;
 }
 /* #endregion }}} */
+
+:root {
+	--color: green;
+}
+section {
+	padding: 2rem;
+}
+
+.about__contact-links {
+	display: flex;
+	gap: 1rem;
+}
+
+.about__link-icon {
+	height: 2.5rem;
+	stroke: var(--color);
+	fill: var(--color);
+	& > *:not(.letters) {
+		fill: var(--color);
+	}
+}
+
+.card {
+	display: block;
+	box-shadow: 2px 2px 8px #333;
+}
+
+.card__img {
+	height: auto;
+	max-height: 20rem;
+	width: 100%;
+	object-fit: cover;
+}
+
+.card__body {
+	padding-inline: 2rem;
+}
+
+.card__title-container {
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card__title {
+	font-size: 2rem;
+}
+
+.card__link-container {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.card__link-icon {
+	height: 2rem;
+	& > * {
+		fill: var(--color);
+		stroke: var(--color);
+	}
+}
