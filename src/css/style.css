@@ -122,16 +122,151 @@ summary {
 }
 /* #endregion }}} */
 
-:root {
-	--color: green;
+@font-face {
+	font-family: 'white-rabbit';
+	src: url('../assets/whitrabt-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
+@font-face {
+	font-family: 'iosevka';
+	src: url('../assets/IosevkaCustom-SemiExtended.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--primary: whitesmoke;
+	--secondary: teal;
+	--box-shadow: 4px 4px 7px #70809055, 0 0 3px #708090a5;
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'white-rabbit', Arial, Helvetica, sans-serif;
+}
+
+body {
+	font-family: 'iosevka', Arial, Helvetica, sans-serif;
+}
+
+main {
+	--bgc: var(--primary);
+	--color: black;
+	background-color: var(--bgc);
+}
+
 section {
 	padding: 2rem;
+
+	@media (min-width: 40rem) {
+		padding-inline: 4rem;
+	}
+}
+
+.hero {
+	position: relative;
+}
+
+.hero::before {
+	content: '';
+	background-color: var(--secondary);
+	inset: 0;
+	position: absolute;
+	clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 0% min(70vh, 80%));
+}
+
+.section__hdg,
+.footer__hdg {
+	font-size: min(10vw, 2.5rem);
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.hero__container {
+	position: relative;
+}
+
+.hero__img {
+	display: block;
+	width: auto;
+	height: 40rem;
+	object-fit: cover;
+	position: relative;
+	z-index: 0;
+	@media (min-width: 40rem) {
+		float: left;
+		left: -2rem;
+		width: 21rem;
+		height: 24rem;
+		z-index: 2;
+	}
+}
+
+.hero__img-wrapper {
+	position: relative;
+	&::after {
+		content: '';
+		inset: 0;
+		position: absolute;
+		z-index: 1;
+		background: linear-gradient(to top, #333, transparent 30%);
+
+		@media (min-width: 40rem) {
+			background: none;
+		}
+	}
+}
+
+.name {
+	font-size: min(12vw, 3rem);
+	display: block;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 2rem;
+	color: whitesmoke;
+	z-index: 3;
+	text-shadow:
+		0 0 5px #333,
+		2px 2px 4px #333;
+
+	@media (min-width: 40rem) {
+		top: 0;
+		text-align: right;
+	}
+}
+
+.about {
+	position: relative;
+	z-index: 1;
+	padding-bottom: 0;
+
+	@media (min-width: 40rem) {
+		margin-top: 5rem;
+		background-color: var(--bgc);
+		box-shadow: var(--box-shadow);
+	}
+}
+
+.about__p {
+	padding-bottom: 1rem;
 }
 
 .about__contact-links {
 	display: flex;
 	gap: 1rem;
+	justify-content: center;
+}
+
+@media (min-width: 40rem) {
+	.about > nav {
+		display: none;
+	}
 }
 
 .about__link-icon {
@@ -141,11 +276,22 @@ section {
 	& > *:not(.letters) {
 		fill: var(--color);
 	}
+	& > *.letters {
+		fill: var(--bgc, white);
+	}
+}
+
+@media (min-width: 40rem) {
+	.work__projects-list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 .card {
 	display: block;
-	box-shadow: 2px 2px 8px #333;
+	box-shadow: var(--box-shadow);
+	background-color: #fbf8f3ff;
 }
 
 .card__img {
@@ -153,21 +299,27 @@ section {
 	max-height: 20rem;
 	width: 100%;
 	object-fit: cover;
+	margin-bottom: 0.7rem;
 }
 
 .card__body {
 	padding-inline: 2rem;
+	padding-bottom: 2rem;
 }
 
 .card__title-container {
-	padding: 1rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: 0.8rem;
+	margin-bottom: 0.7rem;
 }
 
 .card__title {
-	font-size: 2rem;
+	font-size: min(2rem, 5vw);
+	@media (min-width: 40rem) {
+		font-size: 1.2rem;
+	}
 }
 
 .card__link-container {
@@ -180,5 +332,50 @@ section {
 	& > * {
 		fill: var(--color);
 		stroke: var(--color);
+	}
+}
+
+.footer {
+	--bgc: var(--secondary);
+	--color: whitesmoke;
+	background-color: var(--bgc);
+	color: var(--primary);
+	@media (min-width: 40rem) {
+		display: flex;
+	}
+}
+
+.footer__hdg {
+	@media (min-width: 40rem) {
+		text-align: left;
+	}
+}
+
+.footer__cta,
+.footer__text {
+	margin-bottom: 1rem;
+}
+
+.contact {
+	min-width: 24rem;
+	padding-right: 0;
+	@media (min-width: 40rem) {
+		text-align: left;
+	}
+}
+
+.footer__img {
+	width: 100%;
+	@media (min-width: 40rem) {
+		width: 30%;
+		max-height: 30rem;
+		object-fit: cover;
+		margin: 2rem;
+	}
+}
+
+.footer .about__contact-links {
+	@media (min-width: 40rem) {
+		justify-content: start;
 	}
 }
