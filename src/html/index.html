@@ -89,6 +89,20 @@
           <!-- </template> -->
           <!-- li.card*4>img.card__img+.card__title-container>h3.card__title+.card__link-icon-container>a.card__link*2>img.card__link-icon^^^p.card__description -->
 
+          <project-card class="card" demo-url="https://www.etcgcollectors.com/">
+            <img class="card__img" src="../assets/etcgcollectors_login.png" alt="" />
+            <h3>eTCGCollectors.com</h3>
+            <p>
+              Fullstack webapp to store and lookup card collections. A CRUD in single page app style with user defined
+              columns and tables in the database.
+            </p>
+            <p>
+              I built the backend REST API server in Go with a worker/job structure, designed the PostgreSQL database
+              and hosted on a Heroku instance, and implemented AuthN/AuthZ using Firebase. I contributed some "pages" to
+              the frontend which is written in JavaScript and refactored the style and CSS for consistency.
+            </p>
+          </project-card>
+
           <project-card
             class="card"
             github-url="https://github.com/dmclink/odin-battleship"
@@ -101,13 +115,18 @@
               building native HTML web components.
             </p>
           </project-card>
+
+          <project-card></project-card>
+          <project-card></project-card>
         </ul>
       </section>
     </main>
     <footer class="footer">
       <section class="contact">
         <h2 class="section__hdg footer__hdg">Contact me</h2>
-        <p class="footer__cta footer__text">Please get in touch if you think our work could be mutually beneficial!</p>
+        <p class="footer__cta footer__text">
+          Please get in touch through any of these social links if you think our work could be mutually beneficial!
+        </p>
         <p class="footer__text">Either me or my star assistant (pictured here) will respond as soon as possible.</p>
         <address class="footer__text">Location: Seattle, WA<br />Phone: Available at request</address>
 
