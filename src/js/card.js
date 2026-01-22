@@ -71,11 +71,19 @@ class Card extends HTMLElement {
 			demoLink.appendChild(demoIcon);
 		}
 
-		let description = this.querySelector('p');
-		if (!description) {
-			description = document.createElement('p');
-			description.innerText = 'PLACEHOLDER DESCRIPTION';
+		const description = document.createElement('div');
+		description.classList.add('card__description');
+
+		const descriptionParagraphs = this.querySelectorAll('p');
+		if (!descriptionParagraphs) {
+			const p = document.createElement('p');
+			p.innerText = 'PLACEHOLDER DESCRIPTION';
+			description.appendChild(p);
 		}
+
+		Array.from(descriptionParagraphs).forEach((d) => {
+			description.appendChild(d);
+		});
 		cardBody.appendChild(description);
 	}
 }
